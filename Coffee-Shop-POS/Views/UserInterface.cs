@@ -8,14 +8,14 @@ public class UserInterface
     internal static void ShowProductTable(List<Product> products)
     {
         var table = new Table();
-        table.AddColumn("Id");
+        table.AddColumn("ProductId");
         table.AddColumn("Name");
         table.AddColumn("Price");
 
         foreach (var product in products)
         {
             table.AddRow(
-                product.Id.ToString(),
+                product.ProductId.ToString(),
                 product.Name,
                 product.Price.ToString());
         }
@@ -25,7 +25,7 @@ public class UserInterface
 
     public static void ShowProduct(Product product)
     {
-        var panel = new Panel($@"Id: {product.Id} 
+        var panel = new Panel($@"ProductId: {product.ProductId} 
 Name: {product.Name}");
         panel.Header = new PanelHeader("Product Information: ");
         panel.Padding = new Padding(2);

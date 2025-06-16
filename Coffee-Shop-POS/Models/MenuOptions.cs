@@ -1,6 +1,6 @@
 ﻿namespace Coffee_Shop_POS.Models;
 
-public enum MenuOptions
+internal enum MenuOptions
 {
     AddProduct,
     UpdateProduct,

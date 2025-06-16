@@ -30,7 +30,7 @@ public class ProductController
     public static Product GetProductById(int id)
     {
         using var db = new ProductsContext();
-        var product = db.Products.SingleOrDefault(p => p.Id == id);
+        var product = db.Products.SingleOrDefault(p => p.ProductId == id);
 
         return product;
     }

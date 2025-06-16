@@ -47,7 +47,7 @@ public class ProductService
             .Title("Choose Product:")
             .AddChoices(productsArray));
 
-        var productId = products.Single(p => p.Name == option).Id;
+        var productId = products.Single(p => p.Name == option).ProductId;
         var product = ProductController.GetProductById(productId);
 
         return product;
