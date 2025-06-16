@@ -1,6 +1,6 @@
 ﻿using Coffee_Shop_POS.Data;
 using Coffee_Shop_POS.Models;
-using Spectre.Console;
+using Microsoft.EntityFrameworkCore;
 
 namespace Coffee_Shop_POS.Controllers;
 
@@ -30,7 +30,7 @@ public class ProductController
     public static Product GetProductById(int id)
     {
         using var db = new ProductsContext();
-        var product = db.Products.SingleOrDefault(p => p.ProductId == id);
+        var product = db.Products.Include(p => p.Category).SingleOrDefault(p => p.ProductId == id);
 
         return product;
     }
@@ -38,7 +38,7 @@ public class ProductController
     public static List<Product> GetAllProducts()
     {
         using var db = new ProductsContext();
-        var products = db.Products.ToList();
+        var products = db.Products.Include(p => p.Category).ToList();
         return products;
     }
 }
