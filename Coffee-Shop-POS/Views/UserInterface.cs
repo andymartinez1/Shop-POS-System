@@ -32,4 +32,20 @@ Name: {product.Name}");
 
         AnsiConsole.Write(panel);
     }
+
+    public static void ShowCategoryTable(List<Category> categories)
+    {
+        var table = new Table();
+        table.AddColumn("CategoryId");
+        table.AddColumn("Name");
+
+        foreach (var category in categories)
+        {
+            table.AddRow(
+                category.CategoryId.ToString(),
+                category.Name);
+        }
+
+        AnsiConsole.Write(table);
+    }
 }

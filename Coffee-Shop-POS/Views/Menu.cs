@@ -16,6 +16,8 @@ public class Menu
                 new SelectionPrompt<MenuOptions>()
                     .Title("What would you like to do?")
                     .AddChoices(
+                        MenuOptions.AddCategory,
+                        MenuOptions.ViewAllCategories,
                         MenuOptions.AddProduct,
                         MenuOptions.UpdateProduct,
                         MenuOptions.DeleteProduct,
@@ -25,6 +27,14 @@ public class Menu
 
             switch (userChoice)
             {
+                case MenuOptions.AddCategory:
+                    AnsiConsole.Clear();
+                    CategoryService.InsertCategory();
+                    break;
+                case MenuOptions.ViewAllCategories:
+                    AnsiConsole.Clear();
+                    CategoryService.GetAllCategories();
+                    break;
                 case MenuOptions.AddProduct:
                     AnsiConsole.Clear();
                     ProductService.InsertProduct();
